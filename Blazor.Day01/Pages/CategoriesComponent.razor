@@ -1,0 +1,61 @@
+﻿@page "/categories"
+
+<PageTitle>Categories</PageTitle>
+<h3 class="mb-4">Categories</h3>
+
+<div class="form-group mb-3">
+    <label for="categoryId" class="form-label">Select A Category</label>
+    <select id="categoryId" class="form-select" @bind="selectedCategoryId" @bind:event="onchange">
+        <!-- this is two way binding-->
+        <!-- and the property we're binding on selectedCategoryId-->
+        <!-- event used in binding is onchange here the default is onchange but you might change it to any other event like oninput-->
+        <option value="0">Select Category</option>
+        @foreach (var item in categories)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+</div>
+
+<div class="form-group mb-3">
+    <label for="catId" class="form-label">Enter Category Id</label>
+    <input id="catId" name="catId" class="form-control" @bind-value="selectedCategoryId" @bind-value:event="oninput" />
+    <!-- bind-value only exists with the elements that has value attribute -->
+</div>
+
+<hr class="my-4" />
+
+@if (selectedCategoryId != 0)
+{
+    <table class="table table-bordered table-hover table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Image</th>
+                <th>Product Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in products.Where(p => p.CategoryId == selectedCategoryId))
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.price.ToString("C")</td>
+                    <td>
+                        <img src="@item.ImageURL" alt="Not Found" style="width: 50px; height: auto;" class="img-thumbnail" />
+                    </td>
+                    <td>@categories.FirstOrDefault(c => c.Id == item.CategoryId).Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-danger text-uppercase text-center">
+        No selected category
+    </div>
+}
