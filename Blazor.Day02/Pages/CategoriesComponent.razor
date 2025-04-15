@@ -1,0 +1,21 @@
+﻿@page "/categories"
+
+<PageTitle>Categories</PageTitle>
+<h3>CategoriesComponent</h3>
+
+<div class="form-group mb-3">
+    <label for="categoryId" class="form-label">Select A Category</label>
+    <select id="categoryId" class="form-select" @bind="SelectedCategoryId" @bind:event="onchange">
+        <!-- this is two way binding-->
+        <!-- and the property we're binding on selectedCategoryId-->
+        <!-- event used in binding is onchange here the default is onchange but you might change it to any other event like oninput-->
+        <option value="0">Select Category</option>
+        @foreach (var item in _categories)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+</div>
+
+<!-- the below is a child component and the parent component will send the value in @SelectedCategoryId -->
+<ProductsComponent SelectedCategoryIdFromCategoryComponent="@SelectedCategoryId" SelectedCategoryName="@SelectedCategoryName"></ProductsComponent>

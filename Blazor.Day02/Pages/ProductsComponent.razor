@@ -1,0 +1,38 @@
+﻿@page "/products"
+
+<h3>ProductsComponent</h3>
+
+<h4>@SelectedCategoryIdFromCategoryComponent</h4>
+
+
+
+<table class="table table-bordered table-hover table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Image</th>
+            <th>Product Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Products)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.price.ToString("C")</td>
+                <td>
+                    <img src="@item.ImageURL" alt="Not Found" style="width: 50px; height: auto;" class="img-thumbnail" />
+                </td>
+                <td>@SelectedCategoryName</td>
+                <td>
+                    <a href="/products/details/@item.Id">Details</a>
+                    <a href="/products/edit/@item.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

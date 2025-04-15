@@ -1,0 +1,34 @@
+﻿@page "/products/Edit/{id:int}"
+<PageTitle>Product Edit</PageTitle>
+<h3>ProductEditComponent</h3>
+
+@if (Product != null)
+{
+    <EditForm Model="Product" OnSubmit="Save">
+        <div>
+            <label>Name</label>
+            <InputText class="form form-control" @bind-Value="Product.Name"></InputText>
+        </div>
+        <div>
+            <label>Image</label>
+            <InputText class="form form-control" @bind-Value="Product.ImageURL"></InputText>
+        </div>
+        <div>
+            <label>Price</label>
+            <InputNumber class="form form-control" @bind-Value="Product.price"></InputNumber>
+        </div>
+        <div>
+            <label>Category</label>
+            <InputNumber class="form form-control" @bind-Value="Product.CategoryId"></InputNumber>
+        </div>
+        <input type="submit" value="Save" class="btn btn-success" />
+    </EditForm>
+
+    <h4>@Product</h4>
+}
+else
+{
+    <h1 class="alert-info">Wait .. or invalid id </h1>
+}
+
+<a class="btn btn-primary" href="\categories">Back To List</a>
