@@ -1,0 +1,21 @@
+﻿@page "/students/details/{id:int}"
+
+<h3>StudentDetailsComponent</h3>
+<PageTitle>Student Details</PageTitle>
+
+@if (SelectedStudent == null)
+{
+    <h4 class="alert-info">Wait while Loading</h4>
+}
+else
+{
+    <div class="card" style="width:400px">
+        <div class="card-body">
+            <h4 class="card-title">Student Full Name: @SelectedStudent.StFname @SelectedStudent.StLname</h4>
+            <p class="card-text">Student Age: @SelectedStudent.StAge</p>
+            <p class="card-text">Department Name: @SelectedStudent.DepartmentName</p>
+            <p class="card-text">Super Student Name: @SelectedStudent.SuperStudentName</p>
+            <a href="/students" class="btn btn-primary">Back To list</a>
+        </div>
+    </div>
+}

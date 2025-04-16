@@ -1,0 +1,43 @@
+﻿@page "/students"
+
+<h3>StudentComponent</h3>
+<PageTitle>Student Component</PageTitle>
+
+@if(Students != null)
+{
+    
+<table class="table table-bordered table-hover table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Student Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Super Student Name</th>
+            <th>Department Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Students)
+        {
+            <tr>
+                <td>@item.StId</td>
+                <td>@item.StFname</td>
+                <td>@item.StLname</td>
+                <td>
+                    @item.StAge
+                </td>
+                <td>@item.SuperStudentName</td>
+                <td>
+                    @item.DepartmentName
+                </td>
+                <td>
+                    <a href="students/details/@item.StId">Details</a>
+                        <a  href="students/edit/@item.StId">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}

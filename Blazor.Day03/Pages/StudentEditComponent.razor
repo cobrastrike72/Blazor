@@ -1,0 +1,67 @@
+﻿@page "/students/edit/{id:int}"
+
+<PageTitle>Edit Student</PageTitle>
+
+<h3>Edit Student</h3>
+
+@if (Student != null)
+{
+    <EditForm Model="Student" OnValidSubmit="Save">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label>First Name</label>
+            <InputText @bind-Value="Student.StFname" class="form-control" />
+            <ValidationMessage For="() => Student.StFname" />
+        </div>
+
+        <div class="mb-3">
+            <label>Last Name</label>
+            <InputText @bind-Value="Student.StLname" class="form-control" />
+            <ValidationMessage For="() => Student.StLname" />
+        </div>
+
+        <div class="mb-3">
+            <label>Address</label>
+            <InputText @bind-Value="Student.StAddress" class="form-control" />
+            <ValidationMessage For="() => Student.StAddress" />
+        </div>
+
+        <div class="mb-3">
+            <label>Age</label>
+            <InputNumber @bind-Value="Student.StAge" class="form-control" />
+            <ValidationMessage For="() => Student.StAge" />
+        </div>
+
+        <div class="mb-3">
+            <label>Super Student</label>
+            <InputSelect @bind-Value="Student.StSuper" class="form-control">
+                <option value="">-- Select Super Student --</option>
+                @foreach (var super in Students)
+                {
+                    <option value="@super.StId">@super.StFname @super.StLname</option>
+                }
+            </InputSelect>
+            <ValidationMessage For="() => Student.StSuper" />
+        </div>
+
+        <div class="mb-3">
+            <label>Department</label>
+            <InputSelect @bind-Value="Student.DeptId" class="form-control">
+                <option value="">-- Select Department --</option>
+                @foreach (var dept in Departments)
+                {
+                    <option value="@dept.DeptId">@dept.DeptName</option>
+                }
+            </InputSelect>
+            <ValidationMessage For="() => Student.DeptId" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Save</button>
+    </EditForm>
+}
+else
+{
+    <h3 class="alert-info">Loading student data or invalid ID...</h3>
+}

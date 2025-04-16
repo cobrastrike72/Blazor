@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Day01", "Blazor.Day0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Day02", "Blazor.Day02\Blazor.Day02.csproj", "{C721A158-1CD7-4F1F-9AE0-282E91CD533B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Day03", "Blazor.Day03\Blazor.Day03.csproj", "{E97A1847-CC7B-4B94-B88D-50D36AB38459}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C721A158-1CD7-4F1F-9AE0-282E91CD533B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C721A158-1CD7-4F1F-9AE0-282E91CD533B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C721A158-1CD7-4F1F-9AE0-282E91CD533B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E97A1847-CC7B-4B94-B88D-50D36AB38459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E97A1847-CC7B-4B94-B88D-50D36AB38459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E97A1847-CC7B-4B94-B88D-50D36AB38459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E97A1847-CC7B-4B94-B88D-50D36AB38459}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
